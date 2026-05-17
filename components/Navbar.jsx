@@ -27,12 +27,7 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-5 sm:px-8 flex items-center h-[150px] gap-8">
 
           {/* Logo */}
-<Image
-  src="/Logo.svg"
-  alt="Logo"
-  width={400}
-  height={200}
-/>
+<img src="/JG-UNIVERSITY/Logo.svg" alt="Logo" className="h-14 w-auto" />
 
           {/* Desktop links */}
           <div className="hidden md:flex items-center gap-1 ml-auto">
