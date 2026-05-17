@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Scrollbar ─────────────────────── */
+::-webkit-scrollbar       { width: 5px }
+::-webkit-scrollbar-track { background: #030B18 }
+::-webkit-scrollbar-thumb { background: #1A2E54; border-radius: 4px }
+::-webkit-scrollbar-thumb:hover { background: #FBBF24 }
+
+/* ─── Base ───────────────────────────── */
+html { scroll-behavior: smooth }
+body { @apply bg-ink-950 text-white font-sans antialiased }
+
+/* ─── Gradient text helpers ─────────── */
+.tg-gold  { background: linear-gradient(135deg,#FBBF24,#FDE68A); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text }
+.tg-blue  { background: linear-gradient(135deg,#60A5FA,#93C5FD); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text }
+.tg-mixed { background: linear-gradient(120deg,#FBBF24 0%,#60A5FA 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text }
+
+/* ─── Glass card ─────────────────────── */
+.glass {
+  background: rgba(255,255,255,.028);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255,255,255,.075);
+  box-shadow: 0 8px 32px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.04);
+}
+.glass-hover { @apply glass transition-all duration-300 }
+.glass-hover:hover {
+  background: rgba(255,255,255,.05);
+  border-color: rgba(251,191,36,.22);
+  box-shadow: 0 20px 60px rgba(0,0,0,.5), 0 0 28px rgba(251,191,36,.07), inset 0 1px 0 rgba(255,255,255,.05);
+  transform: translateY(-5px);
+}
+
+/* ─── Buttons ────────────────────────── */
+.btn-primary {
+  @apply inline-flex items-center justify-center gap-2 rounded-full font-bold transition-all duration-300;
+  background: linear-gradient(135deg,#FBBF24,#F59E0B);
+  color: #030B18;
+  box-shadow: 0 0 0 0 rgba(251,191,36,.35);
+}
+.btn-primary:hover { box-shadow: 0 0 28px rgba(251,191,36,.45), 0 8px 24px rgba(0,0,0,.3); transform: translateY(-2px) scale(1.02) }
+
+.btn-ghost {
+  @apply inline-flex items-center justify-center gap-2 rounded-full font-medium text-white transition-all duration-300;
+  border: 1px solid rgba(255,255,255,.18);
+  background: rgba(255,255,255,.03);
+}
+.btn-ghost:hover { border-color:rgba(255,255,255,.38); background:rgba(255,255,255,.07); transform:translateY(-2px) }
+
+/* ─── Nav link ───────────────────────── */
+.nav-link {
+  @apply relative text-white/60 hover:text-white text-sm font-medium transition-colors duration-200;
+}
+.nav-link::after {
+  content:''; position:absolute; bottom:-4px; left:0; width:0; height:2px;
+  background:linear-gradient(90deg,#FBBF24,#F59E0B); border-radius:2px;
+  transition: width .3s ease;
+}
+.nav-link:hover::after { width:100% }
+
+/* ─── Section label ──────────────────── */
+.s-label {
+  @apply inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest;
+  color:#FBBF24;
+  border:1px solid rgba(251,191,36,.25);
+  background:rgba(251,191,36,.06);
+  padding: .375rem 1rem;
+  border-radius: 9999px;
+}
+
+/* ─── Gradient border card ───────────── */
+.g-border {
+  position:relative; background:#0C1A30; border-radius:20px;
+}
+.g-border::before {
+  content:''; position:absolute; inset:0; border-radius:20px; padding:1px;
+  background:linear-gradient(135deg,rgba(251,191,36,.45),rgba(96,165,250,.2),transparent 70%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite:xor; mask-composite:exclude; pointer-events:none;
+}
+
+/* ─── Scroll-reveal (JS-toggled) ─────── */
+.reveal        { opacity:0; transform:translateY(30px); transition:opacity .7s ease, transform .7s ease }
+.reveal.show   { opacity:1; transform:translateY(0) }
+.reveal-l      { opacity:0; transform:translateX(-40px); transition:opacity .7s ease, transform .7s ease }
+.reveal-l.show { opacity:1; transform:translateX(0) }
+.reveal-r      { opacity:0; transform:translateX(40px); transition:opacity .7s ease, transform .7s ease }
+.reveal-r.show { opacity:1; transform:translateX(0) }
+
+/* ─── Tab active ─────────────────────── */
+.tab { @apply px-5 py-2.5 rounded-full text-sm font-semibold text-white/45 transition-all duration-300 hover:text-white }
+.tab.on { color:#030B18; background:linear-gradient(135deg,#FBBF24,#F59E0B); box-shadow:0 0 22px rgba(251,191,36,.35) }
+
+/* ─── Testimonial track ──────────────── */
+.t-track { transition: transform .55s cubic-bezier(.4,0,.2,1) }
+
+/* ─── Glow blob ──────────────────────── */
+.blob { position:absolute; border-radius:50%; filter:blur(90px); pointer-events:none }
+
+/* ─── Stagger helpers ────────────────── */
+.d1{transition-delay:.05s} .d2{transition-delay:.12s} .d3{transition-delay:.19s}
+.d4{transition-delay:.26s} .d5{transition-delay:.33s} .d6{transition-delay:.40s}
+.d7{transition-delay:.47s} .d8{transition-delay:.54s}
+
+/* ─── Counter numerals ───────────────── */
+.num { font-variant-numeric:tabular-nums }
